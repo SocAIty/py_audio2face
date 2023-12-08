@@ -1,4 +1,4 @@
-# Audio2Face Python Script
+# py_audio2face
 
 ## Overview
 
