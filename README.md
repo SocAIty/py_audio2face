@@ -7,6 +7,9 @@ It provides methods to control the Audio2Face headless server and interact with 
 
 A use case is to generate animations for a batch of audio files and export them as USD files for example for Maya or Unreal Engine 5.
 
+Big thank you for the NVIDIA Team who made Audio2Face a great tool.
+
+
 ## Prerequisites
 
 - Python 3.x
@@ -59,3 +62,10 @@ a2f.shutdown_a2f()
 
 
 This example initializes an `Audio2Face` instance, processes audio files in a specified folder, and shuts down the Audio2Face server.
+
+## TODOs
+
+Any contribution is appretiatet. At the moment the tests are not working and should be added. Also the communication with the headless.bat file and shutting down the server can be improved. 
+Files with presettings for different characters would be great.
+
+Me the author plans to use the package in another package that handles audio generation with tts and bark and transforms them instantly with a2f.
