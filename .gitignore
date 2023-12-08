@@ -1,0 +1,25 @@
+# Ignore PyCharm files
+.idea/
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore output folder
+output/
+
+# Ignore environment related files
+.env/
+
+# Ignore virtual environment folder
+venv/
+
+# Ignore distribution folders
+dist/
+build/
+*.egg-info/
