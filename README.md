@@ -3,7 +3,7 @@
 ## Overview
 
 This Python script leverages the headless mode of [Audio2Face](https://www.nvidia.com/en-us/omniverse/apps/audio2face/) to generate lip and face animations for characters. 
-It provides methods to control the Audio2Face headless server and interact with it through a requests API. 
+It provides methods to control the [Audio2Face headless server](https://docs.omniverse.nvidia.com/audio2face/latest/user-manual/rest-api.html) and interact with it through a requests API. 
 
 A use case is to generate animations for a batch of audio files and export them as USD files for example for Maya or Unreal Engine 5.
 
