@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'requests',
         'tqdm',
+        'importlib_resources'
         # Add other dependencies as needed
     ]
 )
