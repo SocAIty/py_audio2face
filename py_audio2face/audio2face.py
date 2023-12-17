@@ -206,7 +206,7 @@ class Audio2Face:
         self.set_root_path(os.path.dirname(audio_file_path))
         self.set_track(audio_file_path)
         # convert
-        if not os.path.isdir(output_path):
+        if not os.path.isdir(os.path.dirname(output_path)):
             print("creating output dir")
             os.makedirs(os.path.dirname(output_path))
 
