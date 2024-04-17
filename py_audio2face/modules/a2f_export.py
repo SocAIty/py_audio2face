@@ -1,5 +1,5 @@
 import os
-from audio2face import Audio2Face
+from ..audio2face import Audio2Face
 
 DEFAULT_SOLVER_INSTANCE = "/World/audio2face/BlendshapeSolve"
 

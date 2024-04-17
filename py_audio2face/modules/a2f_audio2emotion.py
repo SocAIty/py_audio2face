@@ -1,4 +1,4 @@
-from audio2face import Audio2Face
+from ..audio2face import Audio2Face
 
 DEFAULT_A2E_INSTANCE = "/World/audio2face/CoreFullface"
 

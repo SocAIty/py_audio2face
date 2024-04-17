@@ -140,8 +140,8 @@ class Audio2Face:
 
         self.init_a2f()
 
-        from modules.a2f_player import set_root_path, set_track
-        from modules.a2f_export import export_blend_shape
+        from .modules.a2f_player import set_root_path, set_track
+        from .modules.a2f_export import export_blend_shape
 
         set_root_path(self, os.path.dirname(audio_file_path))
         set_track(self, audio_file_path)
@@ -153,7 +153,7 @@ class Audio2Face:
 
 
         if emotion:
-            from modules.a2f_audio2emotion import generate_emotion_keys
+            from .modules.a2f_audio2emotion import generate_emotion_keys
             generate_emotion_keys(self)
         
 
@@ -164,8 +164,8 @@ class Audio2Face:
 
         self.init_a2f()
 
-        from modules.a2f_player import set_root_path, set_track
-        from modules.a2f_export import export_blend_shape
+        from .modules.a2f_player import set_root_path, set_track
+        from .modules.a2f_export import export_blend_shape
 
 
         set_root_path(self, input_folder)
