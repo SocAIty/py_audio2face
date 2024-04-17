@@ -24,7 +24,8 @@ def get_audio2face_install_path():
     # get users appdata dir
 
     appdata_dir =os.getenv('LOCALAPPDATA')
-    audio2face_install_dir = os.path.join(appdata_dir, "ov/pkg/audio2face-2023.1.1/")
+    # update to audio2face-2023.2.0
+    audio2face_install_dir = os.path.join(appdata_dir, "ov/pkg/audio2face-2023.2.0/")
     if os.path.isdir(audio2face_install_dir):
         return audio2face_install_dir
     
