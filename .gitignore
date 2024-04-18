@@ -25,4 +25,4 @@ build/
 *.egg-info/
 
 # Ignore test files
-tests/test_files
+tests/test_files/*
