@@ -2,7 +2,10 @@
 
 ## Overview
 
-This Python script leverages the headless mode of [Audio2Face](https://www.nvidia.com/en-us/omniverse/apps/audio2face/) to generate lip and face animations for characters. 
+This Python script leverages the headless mode of [Audio2Face](https://www.nvidia.com/en-us/omniverse/apps/audio2face/) to generate animations for characters:
+- lip movement animations
+- face animations 
+- emotions (new since 2023.2.0)
 It provides methods to control the [Audio2Face headless server](https://docs.omniverse.nvidia.com/audio2face/latest/user-manual/rest-api.html) and interact with it through a requests API. 
 
 A use case is to generate animations for a batch of audio files and export them as USD files for example for Maya or Unreal Engine 5.
@@ -17,7 +20,7 @@ Big thank you for the NVIDIA Team who made Audio2Face a great tool.
 
 
 ## Important Note
-
+ 
 - Modify the `ROOT_DIR` and `DEFAULT_OUTPUT_DIR` variables in the `settings.py` file as needed.
 
 Feel free to explore and customize the script based on your project requirements. Enjoy animating your characters with Audio2Face!
@@ -30,23 +33,34 @@ Install the `py_audio2face` package using pip:
 ```bash
 pip install py_audio2face
 or 
-pip install git+https://github.com/w4hns1nn/py_audio2face.git
+pip install git+https://github.com/SocAIty/py_audio2face.git
 ```
 
 ## Usage
 
-1. **Initialize Audio2Face Instance:**
+1. **Initialize Audio2Face instance:**
 ```python
 import py_audio2face as pya2f
 a2f = pya2f.Audio2Face()
 ```
 
-2. **Generate Animation for a Single Audio File:**
+2. **Generate animation for a single audio file:**
  ```python
 audio_file_path = "path/to/audio/file.wav"
 output_path = "path/to/output/animation.usd"
 a2f.audio2face_single(audio_file_path, output_path, fps=60)
 ```
+
+To generate it including emotions use:
+```python
+a2f.audio2face_single(audio_file_path, output_path, fps=60, emotions=True)
+```
+You can also specify if emotions should be included and modify their settings:
+```python
+a2f.a2e_set_settings(a2e_emotion_strength=0.8, a2e_max_emotions=2)  # optionally modify emotion settings
+a2f.audio2face_single(audio_file_path, output_path, fps=60, emotions=True, emotions_list=["happy", "sad"])
+```
+
 
 3. **Generate Animations for an Entire Folder:**
 ```python

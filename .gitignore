@@ -23,3 +23,6 @@ venv/
 dist/
 build/
 *.egg-info/
+
+# Ignore test files
+test/test_files
