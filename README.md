@@ -74,8 +74,14 @@ a2f.audio2face_folder(input_folder, output_folder)
 a2f.shutdown_a2f()
    ```
 
-
 This example initializes an `Audio2Face` instance, processes audio files in a specified folder, and shuts down the Audio2Face server.
+
+# Related Projects
+
+Why bother about recording audio files? 
+- Convert text-to-speech with [SpeechCraft](https://github.com/SocAIty/SpeechCraft). Use the natural sounding speech and feed it into audio2face.
+- Want sound natively like any other character? Use [RVC](https://github.com/SocAIty/Retrieval-based-Voice-Conversion-FastAPI) to clone any voice. This sounds so real, you'll not notice the difference to a real one.
+
 
 ## TODOs
 
