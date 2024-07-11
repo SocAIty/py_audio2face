@@ -1,7 +1,7 @@
 import os
 import glob
 import importlib_resources
-from settings import APP_DATA_DIR
+from py_audio2face.settings import APP_DATA_DIR
 
 
 def get_files_in_dir(path: str, extensions: list = None) -> list:
