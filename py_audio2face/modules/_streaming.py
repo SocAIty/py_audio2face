@@ -14,7 +14,7 @@ try:
     import numpy as np
     from py_audio2face.modules.clients.grpc_stub import audio2face_pb2, audio2face_pb2_grpc
     streaming_installed = True
-except:
+except Exception as e:
     streaming_installed = False
 
 
