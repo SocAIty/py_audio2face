@@ -3,7 +3,7 @@
 
 import grpc
 
-from modules.clients.grpc_stub import audio2face_pb2 as audio2face__pb2
+from py_audio2face.modules.clients.grpc_stub import audio2face_pb2 as audio2face__pb2
 
 
 class Audio2FaceStub(object):
