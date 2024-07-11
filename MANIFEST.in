@@ -1,1 +1,2 @@
 include py_audio2face/assets/mark_arkit_solved_default.usd
+include py_audio2face/assets/mark_arkit_solved_streaming.usd
