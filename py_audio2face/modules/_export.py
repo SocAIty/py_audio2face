@@ -2,11 +2,15 @@ from __future__ import annotations  # avoid circular import with import py_audio
 import py_audio2face.audio2face as a2f
 
 import os
-from settings import DEFAULT_SOLVER_INSTANCE
+from settings import DEFAULT_SOLVER_INSTANCE, DEFAULT_OUTPUT_DIR
 
 
 class _A2FExport:
     def export(self: a2f.Audio2Face, output_path: str, fps: int = 60, format: str = "usd", emotion: bool = False):
+
+        if output_path is None:
+            print(f"output path is not provided, using default: {DEFAULT_OUTPUT_DIR}")
+            output_path = DEFAULT_OUTPUT_DIR
 
         # avoid non absolute paths
         if not os.path.isabs(output_path):
@@ -19,7 +23,10 @@ class _A2FExport:
         if emotion:
             self.generate_emotion_keys()
 
-        self.export_blend_shape(output_path=output_path, fps=fps, format=format)
+        response = self.export_blend_shape(output_path=output_path, fps=fps, format=format)
+        if not 'status' in response or response['status'] == 'ERROR':
+            print(f"BlendShape Export failed: {response['message']}")
+
         return output_path
 
     def export_blend_shape(self: a2f.Audio2Face, output_path: str, fps: int = 60, format: str = "usd"):
@@ -32,4 +39,4 @@ class _A2FExport:
             "fps": fps
         }
 
-        self.post("A2F/Exporter/ExportBlendshapes", payload=payload)
+        return self.post("A2F/Exporter/ExportBlendshapes", payload=payload)

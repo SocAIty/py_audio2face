@@ -13,7 +13,7 @@ a2f = pya2f.Audio2Face()
 
 # testing the folder method
 #test_folder = "assets/"
-#all_converted = a2f.audio2face_folder(test_folder, '/output', fps=60)
+#all_converted = a2f.audio2face_folder(input_folder=test_folder, output_folder='/output', fps=60)
 
 # testing clients
 
@@ -21,5 +21,5 @@ a2f = pya2f.Audio2Face()
 my_audio = AudioFile().from_file(test_audio_0)
 audio_stream = my_audio.to_stream()
 
-success = a2f.stream_audio(audio_stream, instance_name=DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE, samplerate=audio_stream.sample_rate)
-print("Streaming successful" if success else "Streaming failed")
+files, success = a2f.stream_audio(audio_stream, samplerate=audio_stream.sample_rate, export_blend_shape_interval=10)
+a =1

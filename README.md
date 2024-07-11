@@ -21,60 +21,60 @@ Big thank you for the NVIDIA Team who made Audio2Face a great tool.
 
 ## Important Note
  
-- Modify the `ROOT_DIR` and `DEFAULT_OUTPUT_DIR` variables in the `settings.py` file as needed.
+- Modify the `ROOT_DIR`, `DEFAULT_OUTPUT_DIR`, and `DEFAULT_AUDIO_STREAM_GRPC_PORT` variables in the `settings.py` file as needed.
 
 Feel free to explore and customize the script based on your project requirements. Enjoy animating your characters with Audio2Face!
-
 
 
 ## Installation
 
 Install the `py_audio2face` package using pip:
 ```bash
+# With pip. Note: this version does not include the streaming feature
 pip install py_audio2face
-or 
+# Install also the streaming feature. This includes additional dependencies like grpcio and protobuf
+pip install py_audio2face[streaming]
+# Or install the latest version from GitHub to work with the newest version of Audio2Face
 pip install git+https://github.com/SocAIty/py_audio2face.git
 ```
 
 ## Usage
 
-1. **Initialize Audio2Face instance:**
+**Initialize Audio2Face instance:**
 ```python
 import py_audio2face as pya2f
 a2f = pya2f.Audio2Face()
 ```
 
-2. **Generate animation for a single audio file:**
+**Generate animation for audio files:**
  ```python
-audio_file_path = "path/to/audio/file.wav"
-output_path = "path/to/output/animation.usd"
-a2f.audio2face_single(audio_file_path, output_path, fps=60)
+# Generate animation for a single audio file
+a2f.audio2face_single(audio_file_path="path/to/audio/file.wav", output_path="path/to/output/animation.usd", fps=60, emotion=True)
+# Generate animation for an entire folder of audio files
+a2f.audio2face_folder(input_folder="path/to/my/folder", output_folder='/output', fps=60)
 ```
 
-To generate it including emotions use:
+**Stream audio to Audio2Face:**
+
+Instead of providing paths to the a2f headless server, you can stream the audio data directly to the server. 
+This is useful if you want to generate animations in real-time, for a live stream or in a server setting.
+
+For this example we use the media-toolkit to stream audio data. Install it with `pip install media-toolkit[AudioFile]"`.
+
 ```python
-a2f.audio2face_single(audio_file_path, output_path, fps=60, emotions=True)
+from media_toolkit import AudioFile
+audio = AudioFile().from_file("path/to/audio/file.wav")
+audio_stream = audio.to_stream()  # note: this can be any python generator that yields numpy arrays/bytes of audio data
+a2f.stream_audio(audio_data, output_path="path/to/output/animation.usd", fps=60)
 ```
-You can also specify if emotions should be included and modify their settings:
-```python
-a2f.a2e_set_settings(a2e_emotion_strength=0.8, a2e_max_emotions=2)  # optionally modify emotion settings
-a2f.audio2face_single(audio_file_path, output_path, fps=60, emotions=True, emotions_list=["happy", "sad"])
-```
+For streaming under the hood, a different scene with a streaming audio player is loaded in the init method.
+Then with gRPC requests, the audio data is streamed to the server.
 
 
-3. **Generate Animations for an Entire Folder:**
-```python
-input_folder = "path/to/audio/folder"
-output_folder = "path/to/output/folder"
-a2f.audio2face_folder(input_folder, output_folder)
-   ```
-
-4. **Shutdown Audio2Face Server:**
+**Shutdown Audio2Face Server:**
 ```python
 a2f.shutdown_a2f()
-   ```
-
-This example initializes an `Audio2Face` instance, processes audio files in a specified folder, and shuts down the Audio2Face server.
+```
 
 # Related Projects
 
@@ -85,7 +85,11 @@ Why bother about recording audio files?
 
 ## TODOs
 
-Any contribution is appretiatet. At the moment the tests are not working and should be added. Also the communication with the headless.bat file and shutting down the server can be improved. 
-Files with presettings for different characters would be great.
+Any contribution is appreciated.
+- [x] streaming: upgrade to protobuf 5
+- [x] streaming: allow streaming back of blendshapes or on the fly export
+- [x] create working unit tests
+- [x] Provide different characters not only mark.usd
+- [x] Allow multiple generations / streams at the same time
 
-Me the author plans to use the package in another package that handles audio generation with tts and bark and transforms them instantly with a2f.
+Please raise an issue if you have any suggestions, feature requests or need help with the script.

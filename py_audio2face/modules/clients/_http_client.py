@@ -67,12 +67,6 @@ class _A2F_HTTP_CLIENT:
         print(f"status {status}")
         return status
 
-
-    def init_a2f(self: a2f.Audio2Face):
-        self.start_headless_server()
-        self.load_scene(self.mark_usd_file)
-
-
     def shutdown_a2f(self: a2f.Audio2Face):
         try:
             self.process_audio2face.kill()
