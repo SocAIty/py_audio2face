@@ -90,7 +90,7 @@ class _A2F_streaming:
     #    :param export_blend_shape_interval: Interval to export blend shapes. If None, no blend shapes are exported
     #    :param export_fps: FPS of the exported animation
     #    :param export_path: Path to export the animation
-    #    :param export_emotion: Whether to generate emotion keys from the audio
+    #    :param export_emotion: Whether to generate emotion_auto_detect keys from the audio
     #    :param export_format: Format of the exported animation
     #    :param block_until_playback_is_finished: If True, blocks until playback is finished
     #    :param instance_name: Prim path of the Audio2Face Streaming Audio Player
@@ -130,7 +130,7 @@ class _A2F_streaming:
     #                    self.set_frame(frame=last_export_frame, a2f_instance=a2f_instance, as_timestamp=False)
     #                    f = self.export(
     #                        output_path=f"{export_path}_{i}.{export_format}",
-    #                        fps=export_fps, format=export_format, emotion=export_emotion
+    #                        fps=export_fps, format=export_format, emotion_auto_detect=export_emotion
     #                    )
     #                    generated_blendshapes.append(f)
     #                    last_export_frame = i

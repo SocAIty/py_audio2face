@@ -54,21 +54,38 @@ class Audio2Face(
         self.output_dir = output_dir
         self.process_audio2face = None  # process object for audio2face from subprocess
 
+        self.loaded_scene = None  # the current loaded scene. Checked in init_a2f for not loading the same scene again
+
         # audio2emotion
         self.a2e_settings = self.get_default_a2e_settings()
 
     def init_a2f(self, streaming: bool = False):
-        self.start_headless_server()
+        """
+        Starts the audio2face headless server if a2f not running.
+        Sends the arkit_resolved mark_usd_file / streaming file to the audio2face server to initialize the scene.
+        """
         mark_usd_file = utils.get_mark_usd_file_path(streaming)
+        if self.loaded_scene == mark_usd_file:
+            return
+
+        self.start_headless_server()
         self.load_scene(mark_usd_file)
 
-    def audio2face_single(self, audio_file_path: str, output_path: str, fps: int = 60, emotion: bool = True) -> str:
+
+    def audio2face_single(
+            self,
+            audio_file_path: str,
+            output_path: str,
+            fps: int = 60,
+            emotion_auto_detect: bool = True
+    ) -> str:
         """
         Generate the face animation from a single audio file.
         audio_file_path (str): Path to the audio file.
         output_path (str): Path to the output animation file.
         fps (int): Frames per second of the output animation.
-        emotion (bool): Whether to generate emotion keys from the audio.
+        emotion_auto_detect (bool): Whether to detect emotions in audio and convert them to keyframes. To change the
+            default settings, use the set_emotion method.
         return: the path of the output file
         """
         self.init_a2f()
@@ -76,7 +93,7 @@ class Audio2Face(
         self.set_root_path(audio_file_path)
         self.set_track(audio_file_path)
 
-        return self.export(output_path=output_path, fps=fps, emotion=emotion)
+        return self.export(output_path=output_path, fps=fps, emotion_auto_detect=emotion_auto_detect)
 
     def audio2face_folder(self, input_folder: str, output_folder: str, fps: int = 60, emotion: bool = False) -> list:
         """
@@ -84,7 +101,7 @@ class Audio2Face(
         input_folder (str): Path to the folder containing the audio files.
         output_folder (str): Path to the output folder for the animations.
         fps (int): Frames per second of the output animations.
-        emotion (bool): Whether to generate emotion keys from the audio files.
+        emotion_auto_detect (bool): Whether to generate emotion_auto_detect keys from the audio files.
         :return: a list of the paths of the output files
         """
         self.init_a2f()
@@ -104,7 +121,7 @@ class Audio2Face(
             outfile_name, ext = os.path.basename(af).rsplit(".", 1)
             outfile_name = f"{output_folder}/{outfile_name}_a2f_animation"
 
-            of = self.export(output_path=outfile_name, fps=fps, emotion=emotion)
+            of = self.export(output_path=outfile_name, fps=fps, emotion_auto_detect=emotion)
             output_files.append(of)
 
         return output_files

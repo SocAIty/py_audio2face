@@ -19,7 +19,9 @@ class _A2FGeneral:
             "file_name": usd_file_path
         }
 
-        self.post("A2F/USD/Load", payload)
+        resp = self.post("A2F/USD/Load", payload)
+        self.loaded_scene = usd_file_path
+        return resp
 
     def set_frame(self: a2f.Audio2Face, frame: int, as_timestamp: bool = False, a2f_instance: str = None):
         # get the default instance if not provided. Other instance needed for streaming.

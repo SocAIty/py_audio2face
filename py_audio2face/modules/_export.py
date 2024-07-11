@@ -6,7 +6,21 @@ from settings import DEFAULT_SOLVER_INSTANCE, DEFAULT_OUTPUT_DIR
 
 
 class _A2FExport:
-    def export(self: a2f.Audio2Face, output_path: str, fps: int = 60, format: str = "usd", emotion: bool = False):
+    def export(
+            self: a2f.Audio2Face,
+            output_path: str,
+            fps: int = 60,
+            format: str = "usd",
+            emotion_auto_detect: bool = False
+    ):
+        """
+        Export the blend shapes to a file.
+        :param output_path: Path to the output file.
+        :param fps: Frames per second of the output animation.
+        :param format: Output format of the animation file.
+        :param emotion_auto_detect: Whether to generate emotion_auto_detect keys from the audio.
+            If a dictionary is provided, it will be used as the emotion_auto_detect settings.
+        """
 
         if output_path is None:
             print(f"output path is not provided, using default: {DEFAULT_OUTPUT_DIR}")
@@ -20,11 +34,11 @@ class _A2FExport:
             print(f"creating output dir: {output_path}")
             os.makedirs(os.path.dirname(output_path))
 
-        if emotion:
+        if emotion_auto_detect:
             self.generate_emotion_keys()
 
         response = self.export_blend_shape(output_path=output_path, fps=fps, format=format)
-        if not 'status' in response or response['status'] == 'ERROR':
+        if 'status' not in response or response['status'] == 'ERROR':
             print(f"BlendShape Export failed: {response['message']}")
 
         return output_path
