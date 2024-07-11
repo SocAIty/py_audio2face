@@ -2,6 +2,7 @@ from __future__ import annotations  # avoid circular import with import py_audio
 import py_audio2face.audio2face as a2f
 from settings import DEFAULT_A2E_INSTANCE
 
+
 class _A2FGeneral:
     def get_scene(self: a2f.Audio2Face):
         return self.make_request("A2F/GetInstances")

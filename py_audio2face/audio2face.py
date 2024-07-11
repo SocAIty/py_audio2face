@@ -9,18 +9,20 @@ The script includes methods to
 import os
 import tqdm
 
-from modules._audio2emotion import _A2F_Audio2Emotion
-from modules._export import _A2FExport
-from modules._player import _A2FPlayer
-from modules._streaming import _A2F_streaming
 from modules.clients._http_client import _A2F_HTTP_CLIENT
 from modules._general import _A2FGeneral
+from modules._player import _A2FPlayer
+from modules._audio2emotion import _A2F_Audio2Emotion
+from modules._export import _A2FExport
+from modules._streaming import _A2F_streaming
+
+
 from py_audio2face import utils
 
 
 class Audio2Face(
-    _A2FGeneral,
     _A2F_HTTP_CLIENT,
+    _A2FGeneral,
     _A2FExport,
     _A2FPlayer,
     _A2F_Audio2Emotion,

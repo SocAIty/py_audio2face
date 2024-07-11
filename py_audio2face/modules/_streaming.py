@@ -6,6 +6,7 @@
 from __future__ import annotations  # avoid circular import with import py_audio2face
 import py_audio2face.audio2face as a2f
 
+from settings import DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE, DEFAULT_AUDIO_STREAM_GRPC_PORT
 from typing import Generator, Union
 
 try:
@@ -15,8 +16,6 @@ try:
     streaming_installed = True
 except:
     streaming_installed = False
-
-from settings import DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE, DEFAULT_AUDIO_STREAM_GRPC_PORT
 
 
 class _A2F_streaming:
