@@ -20,6 +20,7 @@ class _A2FExport:
             self.generate_emotion_keys()
 
         self.export_blend_shape(output_path=output_path, fps=fps, format=format)
+        return output_path
 
     def export_blend_shape(self: a2f.Audio2Face, output_path: str, fps: int = 60, format: str = "usd"):
         payload = {

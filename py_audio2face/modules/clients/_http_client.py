@@ -8,7 +8,7 @@ import os
 from requests import JSONDecodeError
 
 
-class _A2FServer:
+class _A2F_HTTP_CLIENT:
     def make_request(self: a2f.Audio2Face, api_route):
         url = f"{self.api_url}/{api_route}"
         try:

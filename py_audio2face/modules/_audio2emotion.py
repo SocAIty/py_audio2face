@@ -19,7 +19,7 @@ Available settings:
     0
     ],
     "a2e_preferred_emotion_strength": 0,    Strength                    Sets the strength of the preferred emotion. This determines how present this animation will be in the final animation.
-    "a2e_streaming_smoothing": 0,           * Only for streaming
+    "a2e_streaming_smoothing": 0,           * Only for clients
     "a2e_streaming_update_period": 0,
     "a2e_streaming_transition_time": 0
 """
@@ -142,7 +142,7 @@ class _A2F_Audio2Emotion:
             0
             ],
             "a2e_preferred_emotion_strength": 0,    Strength                    Sets the strength of the preferred emotion. This determines how present this animation will be in the final animation.
-            "a2e_streaming_smoothing": 0,           * Only for streaming
+            "a2e_streaming_smoothing": 0,           * Only for clients
             "a2e_streaming_update_period": 0,
             "a2e_streaming_transition_time": 0
         """

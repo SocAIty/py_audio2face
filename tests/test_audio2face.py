@@ -44,7 +44,7 @@ class TestAudio2Face(unittest.TestCase):
                 patch('py_audio2face.audio2face.Audio2Face.set_track') as mock_set_track, \
                 patch('py_audio2face.audio2face.Audio2Face.export_blend_shape') as mock_export_blend_shape:
             a2f = Audio2Face()
-            sample_audio_file = 'path/to/assets/test_audio.wav'
+            sample_audio_file = 'path/to/assets/test_audio_0.wav'
             output_path = 'path/to/output/sample_animation.usd'
             a2f.audio2face_single(sample_audio_file, output_path, fps=60)
 

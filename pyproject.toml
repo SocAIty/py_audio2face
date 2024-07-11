@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py_audio2face"
+version = "0.1.2"
+description = "Generate expressive facial animation from audio. Animate 3D characters including lip, face, and emotions with audio-to-animation. "
+requires-python = ">=3.8"
+authors = [
+    { name = "SocAIty" }
+]
+license = { text = "GPLv3" }
+readme = "README.md"
+dependencies = [
+    'requests',
+    'tqdm',
+    'importlib_resources'
+]
+
+[project.urls]
+Repository = "https://github.com/SocAIty/py_audio2face"
+
+[tool.setuptools.packages.find]
+where = ["py_audio2face"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.usd"]
+
+[project.optional-dependencies]
+streaming = [
+    "numpy>=1.18.0",
+    "numpy",
+]

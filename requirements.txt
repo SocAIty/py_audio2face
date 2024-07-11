@@ -1,4 +1,0 @@
-# Audio2Face
-requests
-tqdm
-importlib-resources
