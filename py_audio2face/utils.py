@@ -58,6 +58,10 @@ def get_audio2face_install_path():
     return os.path.join(audio2face_install_dir, newest_version)
 
 
-def get_mark_usd_file_path() -> str:
-    usd_file_path= importlib_resources.files('py_audio2face') / 'assets' / 'mark_arkit_solved_default.usd'
+def get_mark_usd_file_path(streaming = False) -> str:
+    if not streaming:
+        usd_file_path = importlib_resources.files('py_audio2face') / 'assets' / 'mark_arkit_solved_default.usd'
+    else:
+        usd_file_path = importlib_resources.files('py_audio2face') / 'assets' / 'mark_arkit_solved_streaming.usd'
+
     return str(usd_file_path)

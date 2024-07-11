@@ -29,6 +29,8 @@ mypkg = ["*.usd"]
 
 [project.optional-dependencies]
 streaming = [
-    "numpy>=1.18.0",
-    "numpy",
+    "numpy>=1.9.0",
+    "grpcio>=1.65.0",
+    "protobuf",
+    "media-toolkit[AudioFile]"
 ]

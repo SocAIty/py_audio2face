@@ -12,8 +12,8 @@ import tqdm
 from modules._audio2emotion import _A2F_Audio2Emotion
 from modules._export import _A2FExport
 from modules._player import _A2FPlayer
+from modules.clients._grpc_client import _A2F_GRPC_Client
 from modules.clients._http_client import _A2F_HTTP_CLIENT
-from modules._streaming import _A2FStreaming
 from py_audio2face import utils
 
 
@@ -23,7 +23,7 @@ class Audio2Face(
     _A2FExport,
     _A2FPlayer,
     _A2F_Audio2Emotion,
-    _A2FStreaming
+    _A2F_GRPC_Client
 ):
     def __init__(
             self,
@@ -37,7 +37,7 @@ class Audio2Face(
         output_dir (str): Optional output directory for generated animations.
         """
         self.api_url = api_url
-        self.mark_usd_file = utils.get_mark_usd_file_path()
+        self.mark_usd_file = utils.get_mark_usd_file_path(streaming=True)
         print(f"mark_usd_file {self.mark_usd_file}")
         if a2f_install_path is None:
             a2f_install_path = utils.get_audio2face_install_path()

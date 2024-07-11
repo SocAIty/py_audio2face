@@ -10,3 +10,6 @@ APP_DATA_DIR = os.getenv('LOCALAPPDATA')
 DEFAULT_PLAYER_INSTANCE = "/World/audio2face/Player"
 DEFAULT_SOLVER_INSTANCE = "/World/audio2face/BlendshapeSolve"
 DEFAULT_A2E_INSTANCE = "/World/audio2face/CoreFullface"
+
+DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE = "/World/audio2face/PlayerStreaming"
+DEFAULT_AUDIO_STREAM_GRPC_PORT = 50051
