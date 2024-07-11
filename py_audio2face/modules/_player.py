@@ -2,7 +2,7 @@ from __future__ import annotations  # avoid circular import with import py_audio
 import py_audio2face.audio2face as a2f
 
 import os
-from settings import DEFAULT_PLAYER_INSTANCE
+from py_audio2face.settings import DEFAULT_PLAYER_INSTANCE
 
 
 

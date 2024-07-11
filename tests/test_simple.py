@@ -14,9 +14,9 @@ def test_file_methods():
     without_emotion = a2f.audio2face_single(test_audio_0, 'emotion_less.usd', fps=60, emotion_auto_detect=False)
     # Testing with expressive emotions. Applies a preferred emotion even in emotion_auto_detect with update_settings=True
     a2f.set_emotion(anger=0.9, disgust=0.5, fear=0.1, sadness=0.2, update_settings=True)
-    with_emotion = a2f.audio2face_single(test_audio_1,'emotion_full.usd', fps=24, emotion_auto_detect=True)
+    with_emotion = a2f.audio2face_single(test_audio_1,'emotion_full.usd', fps=60, emotion_auto_detect=True)
     # testing the folder method
-    all_converted = a2f.audio2face_folder(input_folder=ASSETS_DIR, output_folder='/output', fps=24)
+    all_converted = a2f.audio2face_folder(input_folder=ASSETS_DIR, output_folder='/output', fps=60)
 
 def test_streaming():
     my_audio = AudioFile().from_file(test_audio_0)

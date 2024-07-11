@@ -9,13 +9,12 @@ The script includes methods to
 import os
 import tqdm
 
-from modules.clients._http_client import _A2F_HTTP_CLIENT
-from modules._general import _A2FGeneral
-from modules._player import _A2FPlayer
-from modules._audio2emotion import _A2F_Audio2Emotion
-from modules._export import _A2FExport
-from modules._streaming import _A2F_streaming
-
+from py_audio2face.modules.clients._http_client import _A2F_HTTP_CLIENT
+from py_audio2face.modules._general import _A2FGeneral
+from py_audio2face.modules._player import _A2FPlayer
+from py_audio2face.modules._audio2emotion import _A2F_Audio2Emotion
+from py_audio2face.modules._export import _A2FExport
+from py_audio2face.modules._streaming import _A2F_streaming
 
 from py_audio2face import utils
 
@@ -70,7 +69,6 @@ class Audio2Face(
 
         self.start_headless_server()
         self.load_scene(mark_usd_file)
-
 
     def audio2face_single(
             self,

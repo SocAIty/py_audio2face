@@ -6,13 +6,13 @@
 from __future__ import annotations  # avoid circular import with import py_audio2face
 import py_audio2face.audio2face as a2f
 
-from settings import DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE, DEFAULT_AUDIO_STREAM_GRPC_PORT
+from py_audio2face.settings import DEFAULT_AUDIO_STREAM_PLAYER_INSTANCE, DEFAULT_AUDIO_STREAM_GRPC_PORT
 from typing import Generator, Union
 
 try:
     import grpc
     import numpy as np
-    from modules.clients.grpc_stub import audio2face_pb2, audio2face_pb2_grpc
+    from py_audio2face.modules.clients.grpc_stub import audio2face_pb2, audio2face_pb2_grpc
     streaming_installed = True
 except:
     streaming_installed = False

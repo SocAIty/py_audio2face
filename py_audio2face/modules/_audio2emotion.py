@@ -1,7 +1,7 @@
 from __future__ import annotations  # avoid circular import with import py_audio2face 
 import py_audio2face.audio2face as a2f
 
-from settings import DEFAULT_A2E_INSTANCE
+from py_audio2face.settings import DEFAULT_A2E_INSTANCE
 
 # Default generate settings
 """
