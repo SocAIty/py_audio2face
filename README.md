@@ -19,11 +19,11 @@ Use cases:
 - Generate animations for characters and export them as USD files for example for Maya or Unreal Engine 5.
 - Stream audio data to the Audio2Face server to generate animations in real-time. Use Live-Lynk to use them in UE5
 
-# Demo
+# Demo and Tutorial
 
-
-
-
+<a href="https://www.youtube.com/watch?v=L0jOBdXy5IE" align="center">
+  <img align="center" src="docs/video_thumbnail.png" height="300" />
+</a>
 
 # Installation
 
