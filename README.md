@@ -25,6 +25,9 @@ Use cases:
   <img align="center" src="docs/video_thumbnail.png" height="300" />
 </a>
 
+</br></br>
+**Checkout [socaity.ai](https://www.socaity.ai) for a ton of related generative AI models and free hosting.**
+
 # Installation
 
 Install the `py_audio2face` package using pip:
@@ -112,6 +115,10 @@ Why bother about recording audio files?
 - Convert text-to-speech with [SpeechCraft](https://github.com/SocAIty/SpeechCraft). Use the natural sounding speech and feed it into audio2face.
 - Want sound natively like any other character? Use [RVC](https://github.com/SocAIty/Retrieval-based-Voice-Conversion-FastAPI) to clone any voice. This sounds so real, you'll not notice the difference to a real one.
 - Create and animate realistic looking characters with [MetaHuman](https://metahuman.unrealengine.com/) and audio2face
+
+Explore the [Generative AI-Model-Zoo](https://www.socaity.ai/APIs/Overview) on [socaity.ai](https://www.socaity.ai)
+- Use [face2face](https://github.com/SocAIty/face2face) for realistic deep-fakes.
+- Combine multiple tools using the socaity [python-SDK](https://github.com/SocAIty/socaity) or [typescript SDK](https://github.com/SocAIty/socaity-js) for your ultimate genAI project.
 
 # Contribute
 
